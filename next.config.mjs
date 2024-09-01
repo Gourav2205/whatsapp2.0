@@ -3,7 +3,7 @@ const nextConfig = {
     images: {
 		remotePatterns: [
 			{ hostname: "curious-gecko-276.convex.cloud" },
-			// { hostname: "oaidalleapiprodscus.blob.core.windows.net" },
+			{ hostname: "oaidalleapiprodscus.blob.core.windows.net" },
 		],
 	},
 };
