@@ -1,7 +1,7 @@
 const authConfig = {
     providers: [
         {
-            domain: "https://www.syncronus.online",
+            domain: "https://clerk.syncronus.online",
             applicationID: "convex",
         },
     ]
