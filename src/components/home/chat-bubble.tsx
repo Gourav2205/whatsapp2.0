@@ -50,12 +50,27 @@ const ChatBubble = ({ me, message, previousMessage }: ChatBubbleProps) => {
 				<DateIndicator message={message} previousMessage={previousMessage} />
 				<div className='flex gap-1 w-2/3'>
 					<ChatBubbleAvatar isGroup={isGroup} isMember={isMember} message={message} fromAI={fromAI} />
-					<div className={`flex flex-col z-20 max-w-fit px-2 pt-1 rounded-md shadow-md relative ${bgClass}`}>
+					<div className={`flex gap-3 z-20 max-w-fit px-2 pt-1 rounded-md shadow-md relative ${bgClass}`}>
 						{!fromAI && <OtherMessageIndicator />}
-						{fromAI && <Bot size={16} className='absolute bottom-[2px] left-2' />}
-						{<ChatAvatarActions message={message} me={me} />}
-						{renderMessageContent()}
-						{open && <ImageDialog src={message.content} open={open} onClose={() => setOpen(false)} />}
+						{fromAI && <Bot size={16} className='absolute bottom-[5px] left-2' />}
+						<div className="flex flex-col">
+							{<ChatAvatarActions message={message} me={me} />}
+							{
+								fromAI && (
+									<div className="mb-6 left-0">
+										{renderMessageContent()}
+									</div>
+								)
+							}
+							{
+								!fromAI && (
+									<div className="py-2">
+										{renderMessageContent()}
+									</div>
+								)
+							}
+							{open && <ImageDialog src={message.content} open={open} onClose={() => setOpen(false)} />}
+						</div>
 						<MessageTime time={time} fromMe={fromMe} />
 					</div>
 				</div>
