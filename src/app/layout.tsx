@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import ConvexClientProvider from "@/providers/convex-client-provider";
 import { Toaster } from "react-hot-toast";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], weight: "500" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
