@@ -1,7 +1,7 @@
 const authConfig = {
     providers: [
         {
-            domain: "https://square-mammal-27.clerk.accounts.dev",
+            domain: "https://www.syncronus.online",
             applicationID: "convex",
         },
     ]
