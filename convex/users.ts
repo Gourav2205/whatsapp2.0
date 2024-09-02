@@ -89,15 +89,11 @@ export const getMe = query({
 		if (!identity) {
 			throw new ConvexError("Unauthorized");
 		}
-		console.log(identity)
 		const user = await ctx.db
 			.query("users")
 			// .withIndex("by_tokenIdentifier", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
 			.withIndex("by_tokenIdentifier", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
-			.unique();
-		console.log("Identity:", identity);
-		console.log("Token Identifier:", identity?.tokenIdentifier);
-
+			.first();
 
 		if (!user) {
 			throw new ConvexError("User not found");
