@@ -91,7 +91,6 @@ export const getMe = query({
 		}
 		const user = await ctx.db
 			.query("users")
-			// .withIndex("by_tokenIdentifier", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
 			.withIndex("by_tokenIdentifier", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
 			.first();
 
