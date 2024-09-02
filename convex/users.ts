@@ -92,7 +92,7 @@ export const getMe = query({
 		const user = await ctx.db
 			.query("users")
 			.withIndex("by_tokenIdentifier", (q) => q.eq("tokenIdentifier", identity.tokenIdentifier))
-			.first();
+			.unique();
 
 		if (!user) {
 			throw new ConvexError("User not found");
